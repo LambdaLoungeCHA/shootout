@@ -32,3 +32,18 @@
   (is (= (nucleotide-iterate
           "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC")
          [20 12 17 21])))
+
+
+;;;; Rabbits
+
+(defn fib-naive
+  ([n] (fib n 1))
+  ([n k]
+     (if (< n 2)
+       n
+       (+ (* k (fib (- n 1)))
+          (* k (fib (- n 2)))))))
+
+(deftest test-fib
+  (is (= (fib-naive 5 3) 15))
+  (is (= (fib-naive 9))))
