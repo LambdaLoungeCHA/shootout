@@ -21,7 +21,7 @@
     then
 ;
 
-\ 5 3 rabbit
+\ 3 5 rabbit dec. drop
 
 \ create dna s" AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"
 \ create ans 0 , 0 , 0 , 0 ,
