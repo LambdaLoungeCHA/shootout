@@ -8,7 +8,13 @@
     then
 ;
 
-create dna s" AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"
+: rabbit { kit gen -- }
+    dup 1 > if
+	1- swap over			\ n-1 k n-1
+	recurse				\ n-1 k fib(n-1)
+	swap dup * swap			\ n-1 k k*fib(n-1)
+	
 
-create ans 0 , 0 , 0 , 0 ,
+\ create dna s" AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"
+\ create ans 0 , 0 , 0 , 0 ,
 
