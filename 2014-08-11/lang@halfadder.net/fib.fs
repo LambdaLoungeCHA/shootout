@@ -1,3 +1,20 @@
+\ stack manipulation tutorial
+
+: -rot ( a b c -- c a b )
+    swap rot swap ;
+
+: 4rev ( a b c d -- d c b a )
+    swap 2swap swap ;
+
+: clear ( n -- )
+    begin
+	dup 0> while
+	    swap drop 1-
+    repeat
+    drop ;
+
+\ actual rabbits
+
 : fib-naive ( factor n -- factor m )
     dup 1 > if
 	over swap			\ k k n
