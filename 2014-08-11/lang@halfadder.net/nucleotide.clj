@@ -41,9 +41,9 @@
   ([n k]
      (if (< n 2)
        n
-       (+ (* k (fib (- n 1)))
-          (* k (fib (- n 2)))))))
+       (+ (fib (- n 1))
+          (fib (- n 2))))))
 
 (deftest test-fib
-  (is (= (fib-naive 5 3) 15))
+  (is (= (fib-naive 5 3) 19))
   (is (= (fib-naive 9))))
