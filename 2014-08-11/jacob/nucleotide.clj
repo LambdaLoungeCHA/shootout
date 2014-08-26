@@ -19,6 +19,13 @@
               :else
               "Error; non dna sequence letter in string")))))
 
+(defn count-DNA2
+  [dna-string]
+  (let [{a \A c \C g \G t \T} (frequencies dna-string)]
+    [a c g t]))
+
 (deftest test-nucleotide
   (is (= (count-DNA "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC")
+         [20 12 17 21]))
+  (is (= (count-DNA2 "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC")
          [20 12 17 21])))
