@@ -17,6 +17,14 @@ def dna(string):
         n[c] += 1
     print n['A'],n['C'],n['G'],n['T']
 
+def dna2(s):
+    """ Counting DNA Nucleotides using str.count builtin method
+    Example:
+    >>> dna2("AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC")
+    20 12 17 21
+    """
+    for c in 'ACGT': print s.count(c),
+
 def fib(n,k=1,a=1,b=0):
     """ Wascally Wabbits
     Example:
