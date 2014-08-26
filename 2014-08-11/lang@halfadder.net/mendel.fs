@@ -1,20 +1,3 @@
-\ utilities
-
-: -frot
-    fswap frot fswap ;
-
-: 4rev
-    swap 2swap swap ;
-
-: p 2 pick ;
-: p, 3 pick ;
-: k 3 pick ;
-: k, 4 pick ;
-: m 4 pick ;
-: m, 5 pick ;
-: n 5 pick ;
-: n, 6 pick ;
-
 \ calculate the total population, leave the bits on the stack
 : prop-population ( k m n -- n m k pop )
     2dup +				\ k m n n+m
@@ -24,62 +7,42 @@
     \ 4rev
 ;
 
-\ k/p
-: prob-dom-dom ( n m k pop num dom -- n m k pop dom num )
-    k + swap
-    p + swap ;
+: in ( num dom -- f_factor )
+    swap s>f s>f f/ ;
 
-\ find the common demoninator for p*p-1
-: pp-1 ( n m k pop dom num -- n m k pop dom num )
-    over * swap
-    p 1 - * swap ;
+: add f* f+ ;
+: 1/2 f* .5e add ;
+: 3/4 f* .75e add ;
 
-\  m/p * k/p-1
-: prob-dom-mix ( n m k pop dom num -- n m k pop dom num )
-    m k, * + ;
+: k over ;
+: p over ;
+: p-1 p 1 - ;
+: m 2 pick ;
+: n 3 pick ;
 
-\  n/p * k/p-1
-: prob-dom-rec ( n m k pop dom num -- n m k pop dom num )
-    n k, * + ;
-
-\  (m/p * k/p-1) * 1/2
-: prob-mix-rec ( n m k pop dom num -- n m k pop dom num )
-    m k, * + swap 
-    * 2 swap ;
-
-\ (m/p * m-1/p-1) * 3/4
-: prob-mix-mix ( n m k pop dom num -- n m k pop dom num )
-    m m, 1 - * 3 * + swap
-    4 * swap ;
-    
-\ n/p * n-1/p-1
-: prob-rec-rec ( n m k pop dom num -- n m k pop dom num )
-    n n, 1 - * + ;
-
-: prob-dominant ( k m n -- dom num )
-    prop-population
-    0 0
-    prob-dom-dom
-    pp-1
-    prob-dom-mix
-    prob-dom-rec
-    prob-mix-mix
-    prob-mix-rec
-    prob-rec-rec
-    2swap 2drop 2swap 2drop ;
+: fprob-dominant ( k m n -- f_prob )
+    prop-population ( k m n -- n m k pop )
+    \ prob-dom-dom
+    k p in
+    \ prob-dom-mix
+    k p in m p-1 in add
+    \ \ prob-dom-rec
+    k p in n p-1 in add
+    \ \ prob-mix-mix
+    m p in m 1 - p-1 in 3/4
+    \ \ prob-mix-rec
+    m p in n p-1 in 1/2
+    \ \ prob-rec-rec
+    n p in n 1 - p-1 in add
+    2drop 2drop ;
 
 : fprob ( k m n -- f_prob )
-    prob-dominant
-    s>f s>f
-    f/
+    fprob-dominant
     f. ;
-    
-1 0 0 fprob
-0 1 0 fprob
 
-\ 1 0 0 fprob
-\ 1 1 0 fprob
-\ 1 0 1 fprob
-\ 0 1 1 fprob
-\ 0 0 1 fprob
-\ 2 2 2 fprob
+2 0 0 fprob
+0 2 0 fprob
+0 0 2 fprob
+0 2 2 fprob
+2 2 0 fprob
+2 2 2 fprob
