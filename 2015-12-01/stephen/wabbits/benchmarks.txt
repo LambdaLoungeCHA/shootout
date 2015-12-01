@@ -1,0 +1,75 @@
+./WABBITS 5 1
+                    5
+   1.89999118E-05
+./wabbits.jl 5 1 r
+5
+  0.037646 seconds (17.14 k allocations: 951.919 KB)
+./wabbits.jl 5 1 m
+5
+  0.038158 seconds (17.53 k allocations: 975.671 KB)
+./wabbits.jl 5 1 l
+5
+  0.414240 seconds (753.16 k allocations: 35.052 MB, 5.62% gc time)
+./wabbits.jl 5 1 c
+5.000000000000001
+  0.077153 seconds (41.63 k allocations: 2.075 MB)
+./WABBITS 10 1
+                   55
+   1.40001066E-05
+./wabbits.jl 10 1 r
+55
+  0.037118 seconds (17.14 k allocations: 951.919 KB)
+./wabbits.jl 10 1 m
+55
+  0.037874 seconds (17.53 k allocations: 975.671 KB)
+./wabbits.jl 10 1 l
+55
+  0.389842 seconds (753.17 k allocations: 35.053 MB, 5.91% gc time)
+./wabbits.jl 10 1 c
+55.000000000000014
+  0.058227 seconds (41.63 k allocations: 2.075 MB)
+./WABBITS 20 1
+                 6765
+   4.99999151E-05
+./wabbits.jl 20 1 r
+6765
+  0.038461 seconds (17.14 k allocations: 951.950 KB)
+./wabbits.jl 20 1 m
+6765
+  0.056729 seconds (17.53 k allocations: 975.702 KB)
+./wabbits.jl 20 1 l
+6765
+  0.384769 seconds (753.17 k allocations: 35.053 MB, 6.81% gc time)
+./wabbits.jl 20 1 c
+6765.000000000005
+  0.059327 seconds (41.63 k allocations: 2.075 MB)
+./WABBITS 40 3
+       85722212350663
+   1.40001066E-05
+./wabbits.jl 40 3 r
+85722212350663
+  0.912575 seconds (17.14 k allocations: 951.950 KB)
+./wabbits.jl 40 3 m
+85722212350663
+  0.037556 seconds (17.53 k allocations: 975.702 KB)
+./wabbits.jl 40 3 l
+85722212350663
+  0.398695 seconds (753.18 k allocations: 35.053 MB, 8.20% gc time)
+./wabbits.jl 40 3 c
+8.57222123506632e13
+  0.058297 seconds (41.63 k allocations: 2.075 MB)
+./WABBITS 50 3
+   359426118413557441
+   1.69998966E-05
+./wabbits.jl 50 3 r
+359426118413557441
+111.298705 seconds (17.14 k allocations: 951.966 KB)
+./wabbits.jl 50 3 m
+359426118413557441
+  0.043339 seconds (17.53 k allocations: 975.718 KB)
+./wabbits.jl 50 3 l
+359426118413557441
+  0.452335 seconds (753.17 k allocations: 35.053 MB, 6.16% gc time)
+./wabbits.jl 50 3 c
+3.594261184135585e17
+  0.067941 seconds (41.63 k allocations: 2.075 MB)
