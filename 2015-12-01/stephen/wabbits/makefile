@@ -1,5 +1,17 @@
-wabbits: WABBITS.FOR
+all: WABBITS tamingofthewabbit test
+
+WABBITS: WABBITS.FOR
 	gfortran -o WABBITS WABBITS.FOR
+
+tamingofthewabbit: tamingofthewabbit.c
+	cd Spl && gcc -o ../tamingofthewabbit -lm tamingofthewabbit.c && \
+          mv tamingofthewabbit.c ../
+
+tamingofthewabbit.c: spl tamingofthewabbit.spl
+	cd Spl && python splc.py ../tamingofthewabbit.spl > tamingofthewabbit.c
+
+spl:
+	git submodule init && git submodule update
 
 test:
 	./WABBITS 5 3
@@ -7,6 +19,7 @@ test:
 	./wabbits.jl 5 3 m
 	./wabbits.jl 5 3 l
 	./wabbits.jl 5 3 c
+	echo "5\n3\n" | time ./tamingofthewabbit
 
 benchmark:
 	./WABBITS 5 1
