@@ -42,10 +42,10 @@ public class NuculotideCounter {
      * of A, C, G, and T (in that order) in {@code sequence}.
      */
     public static String countAndReport(String sequence) {
-        return sequence.chars().boxed().collect(
+        return sequence.concat("ACGT").chars().boxed().collect(
               groupingBy(identity(), counting())).entrySet().stream()
               .sorted((e1, e2) -> e1.getKey().compareTo(e2.getKey()))
-              .reduce("", (s, e) -> s.concat(" " + e.getValue()).trim(),
+              .reduce("", (s, e) -> s.concat(" " + (e.getValue()-1)).trim(),
                     String::concat);
     }
 }
