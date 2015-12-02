@@ -13,5 +13,6 @@ Implementation of the [Rabbits and Recurrence Relations Problem][1] in Prolog.
 2. Specify n and k:
    * Sample: `wabbits(5, 3, Out). % expect Out = 19`
    * From Graph: `wabbits(6, 1, Out). % expect Out = 8`
+   * For Large N: `rabbits(360, 3, Out). % expect Out ~= 7.14e129`
 
 [1]: http://rosalind.info/problems/fib/
